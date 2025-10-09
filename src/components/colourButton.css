@@ -1,0 +1,24 @@
+.colourButton {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 10%;
+
+  background-color: rgb(255, 255, 255);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+.colourButton:hover {
+  background-color: rgb(200, 200, 200);
+}
+
+.colourButtonInnerColour {
+  width: 90%;
+  height: 90%;
+
+  border-radius: 10%;
+}
