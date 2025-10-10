@@ -22,3 +22,8 @@
 
   border-radius: 10%;
 }
+
+.buttonContainer {
+  position: relative;
+  /* for colour picker */
+}
