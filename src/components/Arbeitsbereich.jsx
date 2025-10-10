@@ -4,7 +4,7 @@ import PaletteArea from "./PaletteArea"
 import { useState, useEffect } from "react"
 import getImageData from "../modules/getImageData"
 
-const defaultImage = "/assets/4bitpic.png";;
+const defaultImage = "/assets/2bitpic.png";;
 
 export default function Arbeitsbereich() {
   const [palette, setPalette] = useState([]);

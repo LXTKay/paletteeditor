@@ -8,7 +8,8 @@ export default function ColorPicker({ hexColour, setPaletteColour }) {
         color={hexColour}
         onChange={setPaletteColour}
         disableAlpha={true}
-        width="300px" />
+        width="300px"
+        presetColors={[]} />
     </div>
   )
 }
