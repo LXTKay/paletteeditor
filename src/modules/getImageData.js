@@ -1,4 +1,5 @@
 import rgbToHex from "./rgbToHex";
+import sortPaletteByColor from "./sortPaletteByColor";
 
 export default async function getImageData(src) {
   const canvas = document.createElement("canvas");
@@ -29,14 +30,18 @@ export default async function getImageData(src) {
       pixels.push(index);
     }
 
-    const imageWidth = img.width;
-    const imageHeight = img.height;
+    const sortedPalette = sortPaletteByColor(palette, 300);
+
+    // Rebuild pixel indices to match new palette order
+    const newPixels = pixels.map((oldIndex) =>
+      sortedPalette.indexOf(palette[oldIndex])
+    );
 
     const dataPacket = {
-      fetchedPalette: palette,
-      fetchedPixels: pixels,
-      width: imageWidth,
-      height: imageHeight,
+      fetchedPalette: sortedPalette,
+      fetchedPixels: newPixels,
+      width: img.width,
+      height: img.height,
     };
 
     return dataPacket;
