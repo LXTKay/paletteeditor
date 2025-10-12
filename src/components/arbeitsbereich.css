@@ -5,4 +5,12 @@
   height: 100%;
   justify-content: space-around;
   align-items: center;
+
+}
+
+@media (max-width: 1000px) {
+  .arbeitsbereich {
+    flex-direction: column;
+    justify-content: center;
+  }
 }
