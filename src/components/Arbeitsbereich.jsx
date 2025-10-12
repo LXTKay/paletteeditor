@@ -3,10 +3,10 @@ import Bild from "./Bild"
 import PaletteArea from "./PaletteArea"
 import { useState, useEffect } from "react"
 import getImageData from "../modules/getImageData"
+import PaletteExport from "./PaletteExport"
 
-const defaultImage = "/assets/2bitpic.png";;
-
-export default function Arbeitsbereich() {
+export default function Arbeitsbereich({ bitDepth }) {
+  const defaultImage = `/assets/${bitDepth}bitpic.png`;
   const [palette, setPalette] = useState([]);
   const [pixels, setPixels] = useState([]);
   const [size, setSize] = useState({ width: 0, height: 0 });
@@ -19,12 +19,17 @@ export default function Arbeitsbereich() {
       setSize({ width, height });
     }
     fetchData();
-  }, [])
+  }, [defaultImage])
 
   return (
     <div className="arbeitsbereich">
-      <PaletteArea palette={palette} setPalette={setPalette} />
-      <Bild palette={palette} pixels={pixels} width={size.width} height={size.height} />
+      <div className="areaLeft">
+        <PaletteArea palette={palette} setPalette={setPalette} />
+        <PaletteExport palette={palette} />
+      </div>
+      <div className="areaRight">
+        <Bild palette={palette} pixels={pixels} width={size.width} height={size.height} />
+      </div>
     </div>
   )
 }

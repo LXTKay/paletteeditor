@@ -1,0 +1,21 @@
+.paletteExportBar {
+  display: flex;
+
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.paletteDownloadButton {
+  background-color: #646cff;
+  color: white;
+  font-size: large;
+  font-weight: bold;
+  padding: 0.5rem;
+  border-radius: 10%;
+
+  cursor: pointer;
+}
+
+.paletteDownloadButton:hover {
+  background-color: #535bf2;
+}

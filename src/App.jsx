@@ -1,12 +1,12 @@
 import TopMenu from './components/TopMenu'
-import Arbeitsbereich from './components/Arbeitsbereich'
+import { Outlet } from 'react-router'
 
 function App() {
 
   return (
     <>
       <TopMenu />
-      <Arbeitsbereich />
+      <Outlet />
     </>
   )
 }
