@@ -4,6 +4,7 @@ import PaletteArea from "./PaletteArea"
 import { useState, useEffect } from "react"
 import getImageData from "../modules/getImageData"
 import PaletteExport from "./PaletteExport"
+import PictureImportButton from "./PictureImportButton"
 
 export default function Arbeitsbereich({ bitDepth }) {
   const defaultImage = `/assets/${bitDepth}bitpic.png`;
@@ -28,7 +29,9 @@ export default function Arbeitsbereich({ bitDepth }) {
         <PaletteExport palette={palette} />
       </div>
       <div className="areaRight">
+
         <Bild palette={palette} pixels={pixels} width={size.width} height={size.height} />
+        <PictureImportButton />
       </div>
     </div>
   )

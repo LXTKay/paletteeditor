@@ -2,13 +2,14 @@ import "./paletteExport.css"
 import paletteDownloadJSON from "../modules/paletteDownloadJSON"
 import paletteDownloadTXT from "../modules/paletteDownloadTXT"
 import paletteDownloadGPL from "../modules/paletteDownloadGPL"
+import "../styles/genericButton.css"
 
 export default function PaletteExport({ palette }) {
   return (
     <div className="paletteExportBar">
-      <div className="paletteDownloadButton" onClick={() => paletteDownloadJSON(palette)}>.JSON</div>
-      <div className="paletteDownloadButton" onClick={() => paletteDownloadTXT(palette)}>.txt</div>
-      <div className="paletteDownloadButton" onClick={() => paletteDownloadGPL(palette)}>.gpl</div>
+      <div className="genericButton" onClick={() => paletteDownloadJSON(palette)}>.JSON</div>
+      <div className="genericButton" onClick={() => paletteDownloadTXT(palette)}>.txt</div>
+      <div className="genericButton" onClick={() => paletteDownloadGPL(palette)}>.gpl</div>
     </div>
   )
 }

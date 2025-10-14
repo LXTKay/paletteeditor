@@ -1,0 +1,14 @@
+.genericButton {
+  background-color: #646cff;
+  color: white;
+  font-size: large;
+  font-weight: bold;
+  padding: 0.5rem;
+  border-radius: 10%;
+
+  cursor: pointer;
+}
+
+.genericButton:hover {
+  background-color: #535bf2;
+}
