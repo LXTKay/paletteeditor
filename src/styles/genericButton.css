@@ -4,7 +4,7 @@
   font-size: large;
   font-weight: bold;
   padding: 0.5rem;
-  border-radius: 10%;
+  border-radius: .2rem;
 
   cursor: pointer;
 }
