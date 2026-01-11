@@ -31,7 +31,7 @@ export default function Arbeitsbereich({ bitDepth }) {
       <div className="areaRight">
 
         <Bild palette={palette} pixels={pixels} width={size.width} height={size.height} />
-        <PictureImportButton />
+        <PictureImportButton setPalette={setPalette} setPixels={setPixels} setSize={setSize} bitDepth={bitDepth} />
       </div>
     </div>
   )
