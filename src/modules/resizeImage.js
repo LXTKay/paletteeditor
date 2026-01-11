@@ -7,7 +7,7 @@ export default async function resizeImage(src, width, height) {
   img.src = src;
   await img.decode();
 
-  const canvas = document.createElement('canvas');
+  let canvas = document.createElement('canvas');
   canvas.width = width;
   canvas.height = height;
 

@@ -10,7 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "image-q": "^4.0.0",
     "pica": "^9.0.1",
     "react": "^19.1.1",
     "react-color": "^2.19.3",

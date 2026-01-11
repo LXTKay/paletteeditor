@@ -4,7 +4,7 @@ import sortPaletteByColor from "./sortPaletteByColor";
 export default async function getImageData(src) {
   try {
     let canvas, ctx, img;
-    if (src instanceof URL) {
+    if (typeof src === "string") {
       img = new Image();
       img.src = src;
       await img.decode();
@@ -18,10 +18,10 @@ export default async function getImageData(src) {
       canvas = src;
       ctx = canvas.getContext("2d");
     } else {
-      throw new Error("Invalid image source - is neither URL nor HTMLCanvasElement");
+      throw new Error("Invalid image source - is neither URL nor HTMLCanvasElement; Source: " + src);
     }
 
-    const data = ctx.getImageData(0, 0, img.width, img.height).data;
+    const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
     const palette = [];
     const pixels = [];
 
