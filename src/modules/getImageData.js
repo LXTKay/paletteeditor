@@ -2,17 +2,24 @@ import rgbToHex from "./rgbToHex";
 import sortPaletteByColor from "./sortPaletteByColor";
 
 export default async function getImageData(src) {
-  const canvas = document.createElement("canvas");
-  const ctx = canvas.getContext("2d");
-
   try {
-    const img = new Image();
-    img.src = src;
-    await img.decode();
+    let canvas, ctx, img;
+    if (src instanceof URL) {
+      img = new Image();
+      img.src = src;
+      await img.decode();
 
-    canvas.width = img.width;
-    canvas.height = img.height;
-    ctx.drawImage(img, 0, 0);
+      canvas = document.createElement("canvas");
+      canvas.width = img.width;
+      canvas.height = img.height;
+      ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0);
+    } else if (src instanceof HTMLCanvasElement) {
+      canvas = src;
+      ctx = canvas.getContext("2d");
+    } else {
+      throw new Error("Invalid image source - is neither URL nor HTMLCanvasElement");
+    }
 
     const data = ctx.getImageData(0, 0, img.width, img.height).data;
     const palette = [];
@@ -40,8 +47,8 @@ export default async function getImageData(src) {
     const dataPacket = {
       fetchedPalette: sortedPalette,
       fetchedPixels: newPixels,
-      width: img.width,
-      height: img.height,
+      width: canvas.width,
+      height: canvas.height,
     };
 
     return dataPacket;

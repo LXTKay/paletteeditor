@@ -2,6 +2,8 @@ import "./pictureImportButton.css";
 import "../styles/genericButton.css";
 import getImageData from "../modules/getImageData";
 import validateImageFile from "../modules/validateImageFile";
+import resizeImage from "../modules/resizeImage";
+import imageToCanvas from "../modules/imageToCanvas";
 
 export default function PictureImportButton() {
   function invokePictureUpload() {
@@ -17,7 +19,11 @@ export default function PictureImportButton() {
 
       const src = URL.createObjectURL(file);
 
-      const data = await getImageData(src);
+      let canvas = await imageToCanvas(src);
+
+      canvas = await resizeImage(canvas, 400, 300);
+
+      const data = await getImageData(canvas);
       //useImageData(data);
 
       URL.revokeObjectURL(src);
