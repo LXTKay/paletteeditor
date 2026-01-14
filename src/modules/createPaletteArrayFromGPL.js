@@ -1,4 +1,7 @@
-export default function GPLToPaletteArray(gplPalette) {
+export default async function createPaletteArrayFromTXT(file) {
+  const text = await file.text();
+  const gplPalette = text.toString();
+
   const paletteArray = [];
 
   const lines = gplPalette.split(/\r?\n/);
@@ -18,24 +21,26 @@ export default function GPLToPaletteArray(gplPalette) {
     }
 
     const hexMatch = line.match(/#([0-9a-fA-F]{6})/);
+    const rgbMatch = line.match(/^(\d{1,3})\s+(\d{1,3})\s+(\d{1,3})/);
+
     if (hexMatch) {
       paletteArray.push(`#${hexMatch[1].toLowerCase()}`);
       continue;
-    }
-
-    const rgbMatch = line.match(/^(\d{1,3})\s+(\d{1,3})\s+(\d{1,3})/);
-    if (rgbMatch) {
+    } else if (rgbMatch) {
       const r = Number(rgbMatch[1]);
       const g = Number(rgbMatch[2]);
       const b = Number(rgbMatch[3]);
 
-      // Clamp just to be safe
-      const toHex = (v) =>
-        Math.max(0, Math.min(255, v))
+      function toHex(v) {
+        return Math.max(0, Math.min(255, v))
           .toString(16)
           .padStart(2, "0");
+      }
 
       paletteArray.push(`#${toHex(r)}${toHex(g)}${toHex(b)}`);
+
+    } else {
+      throw new Error("GPL Import Error: Not correctly formatted!")
     }
   }
 

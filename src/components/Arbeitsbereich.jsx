@@ -26,7 +26,7 @@ export default function Arbeitsbereich({ bitDepth }) {
   return (
     <div className="arbeitsbereich">
       <div className="areaLeft">
-        <PaletteImport />
+        <PaletteImport setPalette={setPalette} bitDepth={bitDepth} />
         <PaletteArea palette={palette} setPalette={setPalette} />
         <PaletteExport palette={palette} />
       </div>
