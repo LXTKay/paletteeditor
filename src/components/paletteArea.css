@@ -1,4 +1,9 @@
-.palette {}
+.palette {
+  max-height: 60vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 0;
+}
 
 .align4colours {
   display: grid;
