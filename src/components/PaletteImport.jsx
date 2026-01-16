@@ -4,6 +4,7 @@ import createPaletteArrayFromTXT from "../modules/createPaletteArrayFromTXT";
 import createPaletteArrayFromGPL from "../modules/createPaletteArrayFromGPL";
 import createPaletteArrayFromJSON from "../modules/createPaletteArrayFromJSON";
 import "../styles/icons.css";
+import fillEmptyPaletteSlots from "../modules/fillEmptyPaletteSlots";
 
 
 export default function PaletteImport({ setPalette, bitDepth }) {
@@ -31,9 +32,7 @@ export default function PaletteImport({ setPalette, bitDepth }) {
 
       const maxColors = Math.pow(2, bitDepth);
       if (newPalette.length < maxColors) {
-        newPalette = newPalette.concat(
-          Array(maxColors - newPalette.length).fill("#000000")
-        );
+        newPalette = fillEmptyPaletteSlots(newPalette, maxColors);
       } else if (newPalette.length > maxColors) {
         newPalette = newPalette.slice(0, maxColors);
       }

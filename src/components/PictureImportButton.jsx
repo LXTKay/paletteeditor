@@ -5,6 +5,7 @@ import validateImageFile from "../modules/validateImageFile";
 import resizeImage from "../modules/resizeImage";
 import imageToCanvas from "../modules/imageToCanvas";
 import reduceColors from "../modules/reduceColors";
+import fillEmptyPaletteSlots from "../modules/fillEmptyPaletteSlots";
 
 export default function PictureImportButton({ setPalette, setPixels, setSize, bitDepth }) {
   function invokePictureUpload() {
@@ -31,6 +32,14 @@ export default function PictureImportButton({ setPalette, setPixels, setSize, bi
       canvas = reduceColors(canvas, colorAmount);
 
       const data = await getImageData(canvas);
+
+      const maxColors = Math.pow(2, bitDepth);
+
+      if (data.fetchedPalette.length < maxColors) {
+        data.fetchedPalette = fillEmptyPaletteSlots(data.fetchedPalette, maxColors);
+      } else if (data.fetchedPalette.length > maxColors) {
+        data.fetchedPalette = data.fetchedPalette.slice(0, maxColors);
+      }
 
       setPalette(data.fetchedPalette);
       setPixels(data.fetchedPixels);
