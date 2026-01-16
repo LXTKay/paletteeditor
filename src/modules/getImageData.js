@@ -38,7 +38,6 @@ export default async function getImageData(src) {
     }
 
     const sortedPalette = sortPaletteByColor(palette, 300);
-    console.log("Sorted Palette:", sortedPalette);
 
     // Rebuild pixel indices to match new palette order
     const newPixels = pixels.map((oldIndex) =>
@@ -55,7 +54,6 @@ export default async function getImageData(src) {
     return dataPacket;
 
   } catch (err) {
-    console.error(err);
-    console.log("This is the source:", src);
+    throw new Error(err);
   }
 }

@@ -49,7 +49,7 @@ export default function PictureImportButton({ setPalette, setPixels, setSize, bi
 
       return;
     } catch (error) {
-      console.error("Error processing image:", error);
+      throw new Error(`Error processing image: ${error.message}`);
     }
   }
 

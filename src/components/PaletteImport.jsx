@@ -41,7 +41,7 @@ export default function PaletteImport({ setPalette, bitDepth }) {
 
       return;
     } catch (error) {
-      console.error("Error processing palette:", error);
+      throw new Error("Error processing palette: " + error);
     }
   }
 
