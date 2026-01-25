@@ -6,12 +6,14 @@ export default function ColorPicker({ hexColour, setPaletteColour }) {
 
   useLayoutEffect(() => {
     const colorPicker = document.querySelector(".colorPicker");
-    const offsetTop = colorPicker.getBoundingClientRect().top;
-
-    if (offsetTop < 0) {
-      colorPicker.classList.add("colorPickerShifted");
+    const yPos = window.mousePosition.y - 30;
+    if (yPos + 300 > window.innerHeight) {
+      colorPicker.style.top = `${window.innerHeight - 300 - 10}px`;
+    } else {
+      colorPicker.style.top = `${yPos}px`;
     }
-  },);
+    colorPicker.style.left = `${window.mousePosition.x + 20}px`;
+  }, []);
 
   return (
     <div className="colorPicker" >
