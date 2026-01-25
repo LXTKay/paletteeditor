@@ -3,6 +3,9 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import Router from './Router'
 import registerGlobalErrorSink from './modules/registerGlobalErrorSink'
+import mousePosition from './modules/mousePosition'
+
+window.addEventListener('mousemove', mousePosition.update);
 
 registerGlobalErrorSink();
 
