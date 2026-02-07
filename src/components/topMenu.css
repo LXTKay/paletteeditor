@@ -23,3 +23,13 @@
     background-color: #213547;
   }
 }
+
+@media (max-width: 779px) {
+  .topMenu {
+    flex-wrap: wrap;
+  }
+
+  h1 {
+    margin: 0rem;
+  }
+}
