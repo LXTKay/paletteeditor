@@ -20,4 +20,9 @@
     flex-direction: column;
     justify-content: center;
   }
+
+  .areaLeft,
+  .areaRight {
+    width: 100%;
+  }
 }
