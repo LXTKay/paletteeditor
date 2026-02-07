@@ -10,4 +10,4 @@ export default function PaletteArea({ palette, setPalette }) {
       ))}
     </div>
   )
-}
+} 

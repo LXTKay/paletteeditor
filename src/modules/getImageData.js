@@ -1,7 +1,9 @@
 import rgbToHex from "./rgbToHex";
 import sortPaletteByColor from "./sortPaletteByColor";
+import errorIfBrave from "./errorIfBrave";
 
 export default async function getImageData(src) {
+  errorIfBrave();
   try {
     let canvas, ctx, img;
     if (typeof src === "string") {
@@ -24,6 +26,7 @@ export default async function getImageData(src) {
     const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
     const palette = [];
     const pixels = [];
+
 
     for (let i = 0; i < data.length; i += 4) {
 
