@@ -11,3 +11,11 @@
   /* bottom: unset; */
   /* top: 3.2rem; */
 }
+
+@media (max-width: 1000px) {
+  .colorPicker {
+    top: 0 !important;
+    left: 0 !important;
+    position: fixed;
+  }
+}
