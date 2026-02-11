@@ -10,3 +10,9 @@
   grid-template-columns: repeat(8, 1fr);
   gap: 2px;
 }
+
+@media (max-width: 1000px) {
+  .align4colours {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

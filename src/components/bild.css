@@ -1,0 +1,6 @@
+@media (max-width: 1000px) {
+  .bild {
+    width: 90vw;
+    overflow: hidden;
+  }
+}

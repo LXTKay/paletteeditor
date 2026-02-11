@@ -19,10 +19,13 @@
   .arbeitsbereich {
     flex-direction: column;
     justify-content: center;
+    width: 100%;
   }
 
-  .areaLeft,
-  .areaRight {
-    width: 110%;
+  .areaLeft {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
   }
 }

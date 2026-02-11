@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import drawImage from "../modules/drawImage"
+import "./bild.css"
 
 export default function Bild({ palette, pixels, width, height }) {
   useEffect(() => {
